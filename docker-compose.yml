@@ -1,0 +1,9 @@
+stockflare:
+  build: .
+  command: bundle exec foreman start
+  environment:
+    PORT: 2345
+  ports:
+    - "2345:2345"
+  volumes:
+    - .:/stockflare
