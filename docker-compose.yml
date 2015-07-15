@@ -1,9 +1,20 @@
+news:
+  image: stockflare/api-news-posts-stub
+  command: puma
+  environment: 
+    PORT: 22345
+  ports:
+    - "22345:22345"
+
+
 stockflare:
   build: .
-  command: bundle exec foreman start
+  command: rails server -p 4444
   environment:
-    PORT: 2345
+    PORT: 4444
   ports:
-    - "2345:2345"
+    - "4444:4444"
   volumes:
     - .:/stockflare
+  links:
+    - news
