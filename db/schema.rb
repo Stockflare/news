@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 201507161409) do
+
+  create_table "users", force: :cascade do |t|
+    t.string   "access_token",  limit: 255, null: false
+    t.string   "refresh_token", limit: 255
+    t.string   "token_type",    limit: 255, null: false
+    t.time     "expires_at",                null: false
+    t.integer  "expires_in",    limit: 4,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "users", ["access_token"], name: "index_users_on_access_token", using: :btree
 
 end

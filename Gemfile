@@ -10,6 +10,8 @@ group :default do
 
   gem 'puma'
 
+  gem 'shotgun', github: 'stockflare/shotgun'
+
   gem 'turbolinks'
 
   gem 'sass-rails', '~> 5.0'

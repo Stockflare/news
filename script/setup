@@ -1,0 +1,8 @@
+compose stop
+compose rm --force
+
+./script/run rake db:create
+./script/run rake db:migrate
+
+./script/run rake db:create RAILS_ENV=test
+./script/run rake db:migrate RAILS_ENV=test
