@@ -1,28 +1,24 @@
 source 'https://rubygems.org'
 
-group :default do
+gem 'rails', '4.2.0'
 
-  gem 'rails', '4.2.3'
+gem 'mysql2'
 
-  gem 'mysql2'
+gem 'dotenv'
 
-  gem 'dotenv'
+gem 'puma'
 
-  gem 'puma'
+gem 'shotgun', github: 'stockflare/shotgun'
 
-  gem 'shotgun', github: 'stockflare/shotgun'
+gem 'turbolinks'
 
-  gem 'turbolinks'
+gem 'sass-rails', '~> 5.0'
 
-  gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
 
-  gem 'uglifier', '>= 1.3.0'
+gem 'therubyracer', platforms: :ruby
 
-  gem 'therubyracer', platforms: :ruby
-
-  gem 'jquery-rails'
-
-end
+gem 'jquery-rails'
 
 group :development, :test do
 
@@ -30,10 +26,12 @@ group :development, :test do
 
   gem 'database_cleaner'
 
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.3'
 
   gem 'factory_girl_rails'
 
   gem 'faker'
+
+  gem 'capybara'
 
 end
