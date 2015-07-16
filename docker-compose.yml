@@ -1,20 +1,26 @@
+database:
+  image: tutum/mysql
+  ports:
+    - "3306"
+  environment:
+    MYSQL_USER: root
+    MYSQL_PASS: password
 news:
   image: stockflare/api-news-posts-stub
   command: puma
-  environment: 
-    PORT: 22345
+  environment:
+    PORT: 4545
   ports:
-    - "22345:22345"
-
-
+    - "4545"
 stockflare:
   build: .
-  command: rails server -p 4444
+  command: bundle exec dotenv puma
   environment:
-    PORT: 4444
+    PORT: 2345
   ports:
-    - "4444:4444"
+    - "2345:2345"
   volumes:
     - .:/stockflare
   links:
     - news
+    - database

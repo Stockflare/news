@@ -1,1 +1,1 @@
-compose run stockflare bundle exec foreman run $@
+compose run stockflare bundle exec dotenv $@

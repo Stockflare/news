@@ -1,1 +1,0 @@
-stockflare: rails server -p $PORT

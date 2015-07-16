@@ -1,1 +1,1 @@
-FROM stockflare/base
+FROM stockflare/shotgun
