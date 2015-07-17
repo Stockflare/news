@@ -8,7 +8,7 @@ gem 'dotenv'
 
 gem 'puma'
 
-gem 'shotgun', github: 'stockflare/shotgun'
+gem 'shotgun', github: 'stockflare/shotgun', tag: '0.2.0'
 
 gem 'turbolinks'
 
