@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    puts Shotgun::Services::News::Posts.get.response.inspect
+    @posts = Services::News::Posts.new(:posts).get.response
   end
   
 end

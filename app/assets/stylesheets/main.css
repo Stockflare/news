@@ -1,3 +1,24 @@
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+
+body
+{
+  background-color:#F4F4F4;
+}
+
+
+
+
+.navbar-default
+{
+  background:transparent;
+  border:none;
+  box-shadow: none;
+  margin-bottom: 5px;
+}
+
 .navbar-brand
 {
     position: absolute;
@@ -6,4 +27,125 @@
     top: 0;
     text-align: center;
     margin: auto;
+    height:80px;
+    padding: 20px 15px;
+}
+
+.navbar-collapse
+{
+  padding-left:0px;
+  padding-right: 0px;
+}
+
+.navbar-brand>img {
+  margin: auto;
+}
+
+.navbar-nav>li>a
+{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.navbar-right li a
+{
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.jumbotron
+{
+  padding:0px !important;
+  background-image: url("/assets/jumbotron.png");
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:100px;
+  width:100%;
+}
+
+.transparent
+{
+  background:transparent;
+  border:1px solid #c8c8c8;
+}
+
+.bright
+{
+  background:#4bf3b2;
+  border:1px solid #4bf3b2;
+  color:#0a6b3a;
+}
+
+.btn
+{
+  font-size: 13px;
+  font-weight: bold;
+  padding:8px 13px;
+}
+
+.breaker
+{
+  border-top:1px solid #c5c5c5;
+  border-bottom:1px solid #c5c5c5;
+}
+
+.breaker h4
+{
+  opacity: 0.6;
+  font-weight: bold;
+  font-size: 11px;
+  color: #4C4444;
+  letter-spacing: 0.8px;
+  line-height: 13px;
+  text-transform: uppercase;
+}
+
+article
+{
+  padding:25px 0px;
+  border-radius: 3px;
+}
+
+article:hover
+{
+  background:#fff;
+}
+
+article:hover .tag
+{
+  opacity:0.5;
+}
+
+article h2
+{
+  font-weight:bold;
+  font-size: 20px;
+  color: #000000;
+  line-height: 20px;
+  margin:0px 0px 10px 0px;
+}
+
+article p
+{
+  opacity: 0.39;
+  font-size: 16px;
+  color: #000000;
+  line-height: 28px;
+}
+
+article .tag
+{
+  padding:3px 8px;
+  margin:3px 7px 0px 0px;
+  border:1px solid #979797;
+  font-size:12px;
+  color:#000;
+  opacity:0.3;
+  border-radius: 3px;
+  display: block;
+  float: left;
 }
