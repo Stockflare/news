@@ -20,29 +20,42 @@
   </div>
 
   <% @posts.each do |p| %>
-  <article>
-    <div class="row">
-
-      <div class="col-md-1">
-      </div>
-
-      <div class="col-md-8">
+    
+      <article>
         
-          <h2><%= p.title %></h2>
-          <p><%= p.excerpt %></p>
-          <div class="tags">
-            <% p.tags.each do |t| %>
-              <a class="tag">#<%= t %></a>
-            <% end %>
+        <div class="row">
+
+          <div class="col-md-1 text-center">
+            <div class="vote">
+              <a href="#" class="upvote">
+                <i class="fa fa-caret-up fa-lg"></i>
+              </a>
+              <p><%= p.karma.score %></p>
+              <a href="#" class="downvote">
+                <i class="fa fa-caret-down fa-lg"></i>
+              </a>
+            </div>
           </div>
+
+          <div class="col-md-8">
+            
+              <a href="<%= p.url %>" target="_blank"><h2><%= p.title %></h2></a>
+              <p><%= p.excerpt %></p>
+              <div class="tags">
+                <% p.tags.each do |t| %>
+                  <a class="tag">#<%= t %></a>
+                <% end %>
+              </div>
+            
+          </div>
+
+          <div class="col-md-1">
+          </div>
+
+        </div>
         
-      </div>
-
-      <div class="col-md-1">
-      </div>
-
-    </div>
-  </article>
+      </article>
+   
   <% end %>
 
 </div>
