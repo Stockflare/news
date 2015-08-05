@@ -48,7 +48,7 @@ a
 
 .navbar-nav>li>a
 {
-  padding-top: 30px;
+  padding-top: 35px;
   padding-bottom: 30px;
 }
 
@@ -90,13 +90,14 @@ a
 {
   font-size: 13px;
   font-weight: bold;
-  padding:8px 13px;
+  padding:11px 17px;
 }
 
 .breaker
 {
   border-top:1px solid #c5c5c5;
   border-bottom:1px solid #c5c5c5;
+  padding:5px;
 }
 
 .breaker h4
@@ -131,7 +132,7 @@ article:hover .tag
   opacity:0.5;
 }
 
-article h2
+h2
 {
   font-weight:bold;
   font-size: 20px;
@@ -140,7 +141,14 @@ article h2
   margin:0px 0px 10px 0px;
 }
 
-article p
+h4
+{
+  font-size:15px;
+  font-weight: 500;
+  margin:0px;
+}
+
+p
 {
   opacity: 0.45;
   font-size: 16px;
@@ -313,4 +321,81 @@ article:hover .share
   opacity:0;
   position: relative;
   transition: all 0.2s ease-in-out;
+}
+
+
+/* REGISTER / LOGIN PAGES */
+
+.white
+{
+  border-radius: 2px;
+  background:#fff;
+  padding:40px;
+}
+
+.white p
+{
+  padding:10px 0px;
+}
+
+.white .form-group
+{
+  padding:5px 0px;
+}
+
+.form-control
+{
+  height: 45px;
+  padding: 6px 18px;
+  box-shadow: none;
+  border:2px solid #d5d5d5;
+}
+
+.side
+{
+  background: transparent;
+  border:1px solid #d7d7d7;
+  border-radius: 3px;
+  padding:30px;
+}
+
+.side p
+{
+  font-size:14px;
+  line-height: 20px;
+  padding:14px 0px;
+}
+
+ul
+{
+  list-style: none;
+  padding:0px;
+}
+
+.side ul li
+{
+  font-weight:500;
+  font-size: 13px;
+  color: #474747;
+  line-height: 16px;
+  padding:12px 0px;
+}
+
+.side ul li .fa
+{
+  font-size: 16px;
+  margin-right: 12px;
+  color: #4669ff;
+}
+
+
+.terms p
+{
+  font-size:13px;
+}
+
+.forgotten p
+{
+  font-size:13px;
+  padding:0px;
 }
