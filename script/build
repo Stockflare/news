@@ -1,2 +1,2 @@
 compose build
-compose run stockflare bundle install
+compose run news bundle install

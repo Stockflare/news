@@ -4,4 +4,3 @@
 class Services < Shotgun::Services
 end
 
-puts Services::News::Posts.new(:posts).get.response.first.title.inspect

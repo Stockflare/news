@@ -33,7 +33,7 @@ a
     text-align: center;
     margin: auto;
     height:80px;
-    padding: 20px 15px;
+    padding: 24px 15px;
 }
 
 .navbar-collapse
@@ -56,6 +56,13 @@ a
 {
   padding-top: 24px;
   padding-bottom: 20px;
+}
+
+.navbar-nav li:first-child a
+{
+  padding-left: 0px;
+  padding-top: 24px;
+  padding-bottom: 13px;
 }
 
 .jumbotron
