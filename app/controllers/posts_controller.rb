@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Services::News::Posts.new(:posts).get.response
   end
   
 end

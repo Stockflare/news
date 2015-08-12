@@ -5,22 +5,24 @@ database:
   environment:
     MYSQL_USER: root
     MYSQL_PASS: password
-news:
+stub:
   image: stockflare/api-news-posts-stub
   command: puma
   environment:
     PORT: 4545
   ports:
-    - "4545"
-stockflare:
+    - "4545:4545"
+news:
   build: .
   command: bundle exec dotenv puma
   environment:
     PORT: 2345
+    SECRET_KEY_BASE: 'h7r1901rh01h09ahdhawd82hfahwif'
+    RAILS_ENV: 'production'
   ports:
     - "2345:2345"
   volumes:
     - .:/stockflare
   links:
-    - news
+    - stub
     - database

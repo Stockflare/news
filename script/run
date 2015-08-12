@@ -1,1 +1,1 @@
-compose run stockflare bundle exec dotenv $@
+compose run news bundle exec dotenv $@
