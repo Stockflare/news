@@ -1,0 +1,9 @@
+@import "variables";
+
+a {
+  color: $dark;
+
+  &:hover { color: $dark; }
+
+  &:visited { color: lighten($stable, 20%); }
+}

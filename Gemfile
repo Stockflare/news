@@ -1,37 +1,33 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0'
-
-gem 'mysql2'
-
 gem 'dotenv'
-
-gem 'puma'
-
-gem 'shotgun', github: 'stockflare/shotgun', tag: '0.2.4'
-
-gem 'turbolinks'
-
-gem 'sass-rails', '~> 5.0'
-
-gem 'uglifier', '>= 1.3.0'
-
-gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 
+gem 'mysql2'
+
+gem 'puma'
+
+gem 'rails', '4.2.0'
+
+gem 'sass-rails', '~> 5.0'
+
+gem 'shotgun', github: 'stockflare/shotgun', tag: '0.2.10'
+
+gem 'therubyracer', platforms: :ruby
+
+gem 'uglifier', '>= 1.3.0'
+
 group :development, :test do
-
-  gem 'simplecov', :require => false
-
-  gem 'database_cleaner'
-
-  gem 'rspec-rails', '~> 3.3'
+  gem 'capybara'
 
   gem 'factory_girl_rails'
 
   gem 'faker'
 
-  gem 'capybara'
+  gem 'database_cleaner'
 
+  gem 'rspec-rails', '~> 3.3'
+
+  gem 'simplecov', :require => false
 end

@@ -1,0 +1,144 @@
+$brand: #07a3ee; //main brand blue color
+
+$positive: #4ed2ab; //green color
+
+$negative: #e74c3c; //red color
+
+$neutral: #fa9e22; // orange color
+
+$energized: #fcbf3c; //star active orange
+
+$depleted: #c7ccd4; //star inactive grey
+
+$background: #f9fafc; //website background color
+
+$border: #e0e5ec; //common border color
+
+$dark: #262e39; //sidebar background color
+
+$royal: #56667c; //sidebar inactive color
+
+$ambient: rgba($royal, .3); //sidebar border color
+
+$twilight: #2f3946; // lighter sidebar background color
+
+$stable: #5b616a; //main title color
+
+$text: #9aa5ac; //main text color
+
+$title: #626871;
+
+$bright: #a9b2bf; //main text lighter color (subtext)
+
+$normal: white; //prevalent title overlayed color
+
+$dusk: #edf1f5; //very light blue color
+
+$dull: #f3f4f5; //very light grey color
+
+$clear: transparent; //utility color
+
+$translucent: rgba(black, 0.25);
+
+$colors:
+  brand,
+  positive,
+  negative,
+  neutral,
+  energized,
+  depleted,
+  background,
+  border,
+  dark,
+  royal,
+  ambient,
+  twilight,
+  stable,
+  text,
+  title,
+  bright,
+  normal,
+  dusk,
+  dull,
+  clear,
+  translucent;
+
+$_colors:
+  $brand,
+  $positive,
+  $negative,
+  $neutral,
+  $energized,
+  $depleted,
+  $background,
+  $border,
+  $dark,
+  $royal,
+  $ambient,
+  $twilight,
+  $stable,
+  $text,
+  $title,
+  $bright,
+  $normal,
+  $dusk,
+  $dull,
+  $clear,
+  $translucent;
+
+$screen-xs: 0px;
+$screen-sm: 800px;
+$screen-md: 1084px;
+$screen-lg: 1516px;
+
+$screen-xs-min: $screen-xs;
+$screen-sm-min: $screen-sm;
+$screen-md-min: $screen-md;
+$screen-lg-min: $screen-lg;
+
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+
+$breakpoints_max: xs, sm, md;
+
+$_breakpoints_max:
+  $screen-xs-max,
+  $screen-sm-max,
+  $screen-md-max;
+
+$breakpoints_min: xs, sm, md, lg;
+
+$_breakpoints_min:
+  $screen-xs-min,
+  $screen-sm-min,
+  $screen-md-min,
+  $screen-lg-min;
+
+$large_spacing: 57px;
+
+$medium_spacing: 34px;
+
+$small_spacing: 25px;
+
+$tiny_spacing: 18px;
+
+$micro_spacing: 10px;
+
+$no_spacing: 0px;
+
+$spacings:
+  micro,
+  tiny,
+  small,
+  medium,
+  large,
+  no;
+
+$_spacings:
+  $micro_spacing,
+  $tiny_spacing,
+  $small_spacing,
+  $medium_spacing,
+  $large_spacing,
+  $no_spacing;

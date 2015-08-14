@@ -1,0 +1,36 @@
+<article class="small-xs-padding" itemscope itemtype="http://schema.org/Article">
+  <meta itemprop="datePublished" content="<%= post.created_at %>">
+  <meta itemprop="author" content="<%= post.source.title %>">
+  <div class="row">
+    <div class="col-md-1 text-center">
+      <%= render partial: 'vote', object: post.votes %>
+    </div>
+    <div class="col-md-9">
+      <h2 class="abs-line-height">
+        <a href="<%= post.url %>" title="Posted <%= time_ago_in_words(post.created_at) %> ago" target="_blank" itemprop="url">
+          <span itemprop="headline"><%= post.title %></span>
+        </a>
+      </h2>
+      <p class="micro-xs-vertical-margin" itemprop="about"><%= post.excerpt %></p>
+      <div class="tags clearfix">
+        <% post.tags.each do |key, value| %>
+          <a class="tag" href="#" itemprop="keywords" data-tag="<%= key %>" data-probability="<%= value %>">
+            <div class="micro-xs-bottom-margin micro-xs-left-margin pull-left">
+              <span class="text-bright">#<%= key %></span>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-2 clearfix">
+      <a href="http://<%= post.source.domain %>" target="_blank" itemprop="creator" title="<%= post.source.title %>">
+        <div class="porthole pull-right">
+          <%= image_tag("sources/#{post.source.permalink}.png", alt: post.source.title, title: post.source.title) %>
+        </div>
+      </a>
+      <!-- <a href="#" class="share">
+        <i class="fa fa-twitter fa-lg"></i>
+      </a> -->
+    </div>
+  </div>
+</article>

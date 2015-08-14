@@ -1,0 +1,31 @@
+<div class="small-xs-vertical-margin small-xs-horizontal-padding container">
+  <div class="small-xs-horizontal-padding">
+    <div class="row">
+      <div class="col-md-5 text-left">
+        <!-- <a href="https://stockflare.com" target="_blank">
+          <%= image_tag("common/made-by-stockflare.png", alt: "Made by Stockflare") %>
+        </a> -->
+        <div class="clearfix">
+          <a href="/popular" class="pull-left btn text-text text-dark-active
+            <%= "active" if @mode == "popular" %>
+            btn-clear micro-xs-vertical-padding tiny-xs-right-margin">
+            Top News
+          </a>
+          <a href="/recent" class="pull-left btn text-text text-dark-active
+            <%= "active" if @mode == "recent" %>
+            btn-clear micro-xs-vertical-padding">
+            Recent News
+          </a>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <a href="/"><%= image_tag("common/logo.png", alt: 'Home') %></a>
+      </div>
+      <div class="col-md-5 clearfix">
+        <div class="pull-right">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

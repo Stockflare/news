@@ -1,0 +1,13 @@
+<div class="background-clear widget small-xs-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+    <a href="#" class="upvote text-positive-hover">
+      <i class="fa fa-caret-up fa-lg"></i>
+    </a>
+    <% if !vote.empty? %>
+      <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount"><%= vote.votes %></p>
+    <% else %>
+      <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">0</p>
+    <% end %>
+    <a href="#" class="downvote text-negative-hover">
+      <i class="fa fa-caret-down fa-lg"></i>
+    </a>
+</div>

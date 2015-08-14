@@ -1,0 +1,17 @@
+@import "variables";
+
+.tags {
+  .tag {
+    & > div {
+      padding: 3px 4px;
+      border-radius: 2px;
+      border: solid 1px $border;
+    }
+
+    &:first-child {
+      & > div {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}

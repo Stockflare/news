@@ -1,6 +1,6 @@
 # AWS Cloudformation
 
-Launches the News Website with a Public facing load balancer.
+Launches the News Website with a Public facing load balancer located at news.<hosted zone>
 
 This Cloudformation launches an ECS service that is designed to run inside the CoreOS cluster.
 
@@ -45,19 +45,23 @@ Some manual steps are required for first launch; to setup the database, migratio
 0. Determine which EC2 instance has been determined to run the service.
 0. SSH into the EC2 instance.
 0. Look at the ECS Task Definition inside the Console for the following environment variables:
-  * `DB_ORM`
-  * `DATABASE_CONNECTION`
+  * `DB_USERNAME`
+  * `DB_PASSWORD`
+  * `DB_HOST`
+  * `DB_PORT`
+  * `DB_NAME`
 0. On the instance, run the following command to reset and seed the database:
   ```
-  docker run -e DB_ORM=<db_orm> -e DATABASE_CONNECTION=<database_connection> <container> bundle exec rake db:reset
+  docker run -e RAILS_ENV=production -e DB_USERNAME=username -e DB_PASSWORD=password -e DB_HOST=host -e DB_PORT=port -e DB_NAME=name <container> bundle exec rake db:create
   ```
   ```
-  docker run -e DB_ORM=<db_orm> -e DATABASE_CONNECTION=<database_connection> <container> bundle exec rake db:seed[/stockflare/db/seeds/list.csv]
+  docker run -e RAILS_ENV=production -e DB_USERNAME=username -e DB_PASSWORD=password -e DB_HOST=host -e DB_PORT=port -e DB_NAME=name <container> bundle exec rake db:migrate
   ```
 
 ### Further Migrations
 
-0. Follow all the instructions for the First Launch, but swap instruction 5. for the following command:
+0. Follow instructions 1-4 from the first launch, then run the following command:
   ```
-  docker run -e DB_ORM=<db_orm> -e DATABASE_CONNECTION=<database_connection> <container> bundle exec rake db:migrate
+  docker run -e RAILS_ENV=production -e DB_USERNAME=username -e DB_PASSWORD=password -e DB_HOST=host -e DB_PORT=port -e DB_NAME=name <container> bundle exec rake db:migrate
+  ```
   ```

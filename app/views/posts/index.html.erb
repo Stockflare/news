@@ -1,69 +1,9 @@
+<%= render partial: 'header' %>
+
 <div class="container">
-  <div class="jumbotron">
+  <div class="small-xs-horizontal-padding">
+    <%= render partial: 'post', collection: @posts %>
   </div>
 </div>
 
-
-<div class="container">
-  <div class="breaker">
-    <div class="row">
-      <div class="col-md-4 text-left">
-        <h4>1234 Articles</h4>
-      </div>
-      <div class="col-md-4 text-center">
-        <h4><%= Time.now.strftime("%m/%d/%Y") %></h4>
-      </div>
-      <div class="col-md-4 text-right">
-        <h4>Share</h4>
-      </div>
-    </div>
-  </div>
-
-  <% @posts.each do |p| %>
-    
-      <article>
-        
-        <div class="row">
-
-          <div class="col-md-1 text-center">
-            <div class="vote">
-              <a href="#" class="upvote">
-                <i class="fa fa-caret-up fa-lg"></i>
-              </a>
-              <p><%= p.karma.score %></p>
-              <a href="#" class="downvote">
-                <i class="fa fa-caret-down fa-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-9">
-            
-              <a href="<%= p.url %>" target="_blank"><h2><%= p.title %></h2></a>
-              <p><%= p.excerpt %></p>
-              <div class="tags">
-                <% p.tags.each do |t| %>
-                  <a class="tag">#<%= t %></a>
-                <% end %>
-              </div>
-            
-          </div>
-
-          <div class="col-md-2 text-right">
-            <a href="#" class="source">
-
-              <%= image_tag("#{p.source.permalink}.png") %>
-            </a>
-            <a href="#" class="share">
-              <i class="fa fa-twitter fa-lg"></i>
-            </a>
-          </div>
-
-        </div>
-        
-      </article>
-   
-  <% end %>
-
-</div>
-
+<%= render partial: 'footer' %>
