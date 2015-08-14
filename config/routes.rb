@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'popular/(*:date)', to: 'posts#popular'
 
+  get :ping, to: 'ping#index'
+
   # You can have the root of your site routed with "root"
   root 'posts#recent'
 
