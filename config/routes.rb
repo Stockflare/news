@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'popular/(*:date)', to: 'posts#popular'
 
   # You can have the root of your site routed with "root"
-  root 'posts#popular'
+  root 'posts#recent'
 
   # resources :users, except: [:index, :destroy, :edit, :update]
 
