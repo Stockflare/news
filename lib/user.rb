@@ -15,7 +15,6 @@ class User
 
   def get(token = nil)
     token = Token.new(login!.body) unless token
-    puts({ headers: token.to_header }).inspect
     user_service.user({}, { headers: token.to_header }).call
   end
 

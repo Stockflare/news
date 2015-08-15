@@ -31,7 +31,7 @@ class Token
   end
 
   def to_header
-    { token_type.capitalize => access_token }
+    { "Authorization" => "#{token_type.capitalize} #{access_token}"}
   end
 
   def to_cookie

@@ -70,6 +70,6 @@ describe Token do
 
     it { should be_a Hash }
 
-    it { should eq({ token.token_type.capitalize => token.access_token }) }
+    it { should eq({ "Authorization" => "#{token.token_type.capitalize} #{token.access_token}" }) }
   end
 end

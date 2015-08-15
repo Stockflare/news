@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/stockflare/shotgun.git
-  revision: 3ff6a560a9944326100856ba4557ad0d8067f3b4
-  tag: 0.2.12
+  revision: c359121cb70ce9a1957e705f0eb4f5403cd2d6bf
+  tag: 0.2.13
   specs:
-    shotgun (0.2.10)
+    shotgun (0.2.13)
       faraday (~> 0.9)
       hashie (~> 3.4)
       rack (~> 1.6)
