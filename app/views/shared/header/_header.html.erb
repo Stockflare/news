@@ -6,12 +6,12 @@
           <%= image_tag("common/made-by-stockflare.png", alt: "Made by Stockflare") %>
         </a> -->
         <div class="clearfix">
-          <a href="/popular" class="pull-left btn text-text text-dark-active
+          <a href="<%= popular_path %>" class="pull-left btn text-text text-dark-active
             <%= "active" if @mode == "popular" %>
             btn-clear micro-xs-vertical-padding tiny-xs-right-margin">
             Top News
           </a>
-          <a href="/recent" class="pull-left btn text-text text-dark-active
+          <a href="<%= recent_path %>" class="pull-left btn text-text text-dark-active
             <%= "active" if @mode == "recent" %>
             btn-clear micro-xs-vertical-padding">
             Recent News

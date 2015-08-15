@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'recent/(*:date)', to: 'posts#recent'
+  get 'recent/(*:date)', to: 'posts#recent', as: :recent
 
-  get 'popular/(*:date)', to: 'posts#popular'
+  get 'popular/(*:date)', to: 'posts#popular', as: :popular
 
   get :ping, to: 'ping#index'
 
@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   # resources :users, except: [:index, :destroy, :edit, :update]
 
-  # get :register, to: 'users#register'
-  #
-  # post :register, to: 'users#create'
-  #
-  # get :login, to: 'users#login'
-  #
-  # post :login, to: 'users#get'
+  get :register, to: 'users#register'
+
+  get :login, to: 'users#login'
+
+  post :register, to: 'users#create', as: :submit_register
+
+  post :login, to: 'users#authenticate', as: :submit_login
 end

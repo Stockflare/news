@@ -1,6 +1,10 @@
 @import "variables";
 
 article {
+  a {
+    &:visited { color: lighten($stable, 20%); }
+  }
+
   &:hover {
     background: rgba(#FFF, 0.6)
   }

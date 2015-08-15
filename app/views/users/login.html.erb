@@ -1,33 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-9 white">
-      <h2>Welcome back to Stockflare</h2>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Email Address">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password">
-      </div>
-      <div class="form-group">
-         <button type="button" class="btn btn-success bright">Login &rarr;</button>
-      </div>
-      <div class="forgotten">
-        <p>Forgotten your details? Retrieve them <a href="#">here</a></p>
-        <p>Need an account? You can easily register <a href="#">here</a></p>
+<%= render layout: "form" do %>
+  <h2 class="abs-line-height small-xs-bottom-margin">Welcome back to Stockflare</h2>
+  <p class="small-xs-vertical-margin">If you have already registered for Stockflare, you can use your existing username and password below.</p>
+  <form action="#" method="post" class="form small-xs-top-margin">
+    <div class="form-group small-xs-vertical-margin" data-fields="email">
+      <div class="sr-label">
+        <label for="c2_email">Email Address</label>
+        <div>
+          <input value="<%= @username %>" name="username" class="form-control" placeholder="Email Address" type="text">
+        </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="col-md-12 side">
-        <h4>What's the benefits to me?</h4>
-        <p>Below are all the great features you get just by registering</p>
-        <ul>
-          <li><i class="fa fa-expand"></i>Upvote & Downvote News</li>
-          <li><i class="fa fa-eye"></i>Watch Unlimited Stocks</li>
-          <li><i class="fa fa-comments"></i>Join the Discussion</li>
-          <li><i class="fa fa-cogs"></i>Constant Updating</li>
-        </ul>
+    <div class="form-group small-xs-vertical-margin" data-fields="password">
+      <div class="sr-label">
+        <label for="c2_email">Password</label>
+        <div>
+          <input name="password" class="form-control" placeholder="Password" type="password">
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="form-group small-xs-vertical-margin">
+      <input type="submit" class="login-submit btn btn-positive micro-xs-padding" value="Login">
+    </div>
+    <div class="form-group small-xs-vertical-margin">
+      <p><a href="https://stockflare.com/forgot" target="_blank">I've forgotten my password</a></p>
+    </div>
+    <div class="prompt form-group small-xs-top-margin">
+      <p>Not a member? <a class="register-btn" href="<%= register_path %>">Sign up free here</a></p>
+    </div>
+  </form>
+<% end %>
