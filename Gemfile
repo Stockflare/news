@@ -4,15 +4,15 @@ gem 'dotenv'
 
 gem 'jquery-rails'
 
-gem 'mysql2'
-
 gem 'puma'
+
+gem 'virtus'
 
 gem 'rails', '4.2.0'
 
 gem 'sass-rails', '~> 5.0'
 
-gem 'shotgun', github: 'stockflare/shotgun', tag: '0.2.10'
+gem 'shotgun', github: 'stockflare/shotgun', tag: '0.2.13'
 
 gem 'therubyracer', platforms: :ruby
 
@@ -24,8 +24,6 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'faker'
-
-  gem 'database_cleaner'
 
   gem 'rspec-rails', '~> 3.3'
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get :login, to: 'users#login'
 
-  post :register, to: 'users#create', as: :submit_register
+  post :register, to: 'users#create'
 
-  post :login, to: 'users#authenticate', as: :submit_login
+  post :login, to: 'users#authenticate'
 end

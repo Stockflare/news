@@ -1,19 +1,13 @@
-database:
-  image: tutum/mysql
-  ports:
-    - "3306"
-  environment:
-    MYSQL_USER: root
-    MYSQL_PASS: password
 news:
   build: .
   command: bundle exec dotenv puma
   environment:
     PORT: 2345
     SERVICE_POSTS_NEWS_URL: posts.news.internal-stocktio.com
+    SERVICE_USERS_URL: api.stocktio.com/api/2
+    CLIENT_ID: 0406f3dc4774af9a9d8f958c045fc39d2b2265d0bb8ce0e02688003af552045f
+    CLIENT_SECRET: 742e8394744371f473ab678000ae271f1b80a9d7d151bf4a8c9ebcfd22166ee0
   ports:
     - "2345:2345"
   volumes:
     - .:/stockflare
-  links:
-    - database

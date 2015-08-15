@@ -1,19 +1,12 @@
-require 'faker'
-
 FactoryGirl.define do
-
   factory :user do
 
-    access_token Faker::Bitcoin.address
+    sequence(:username) { |n| n.to_s + Faker::Internet.email }
 
-    refresh_token Faker::Bitcoin.address
+    password Faker::Internet.password(8, 20)
 
-    token_type "Bearer"
+    otp { rand(123456..234567) }
 
-    expires_at Time.now + 1.hour
-
-    expires_in 1.hour
-
+    initialize_with { User.new attributes }
   end
-
 end
