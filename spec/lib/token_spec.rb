@@ -30,11 +30,13 @@ describe Token do
   describe 'return value of #to_cookie' do
     subject(:cookie) { token.to_cookie }
 
-    specify { expect(subject).to_not be_empty }
+    specify { expect(subject).to be_a Hash }
+
+    specify { expect(subject.keys).to include :value, :expires }
   end
 
   describe 'return value of #from_cookie' do
-    subject(:encoded) { token.to_cookie }
+    subject(:encoded) { token.to_cookie[:value] }
 
     specify { expect(Token.from_cookie(encoded)).to be_an_instance_of Token }
   end

@@ -2,6 +2,8 @@
   <h2 class="abs-line-height small-xs-bottom-margin">Join Stockflare</h2>
   <p class="small-xs-vertical-margin">Registering is easy, simply enter your email address and choose a password using the form below.</p>
   <form action="<%= register_path %>" method="post" class="form small-xs-top-margin" enctype="multipart/form-data">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= render partial: 'shared/errors' if @errors %>
     <div class="form-group small-xs-vertical-margin" data-fields="email">
       <div class="sr-label">
         <label>Email Address</label>

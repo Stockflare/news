@@ -6,6 +6,8 @@ class User
   include Virtus.value_object(coerce: true)
 
   values do
+    attribute :id, String
+
     attribute :username, String
 
     attribute :password, String
@@ -13,23 +15,30 @@ class User
     attribute :otp, Integer, default: 0
   end
 
-  def get(token = nil)
-    token = Token.new(login!.body) unless token
-    user_service.user({}, { headers: token.to_header }).call
-  end
-
   def register!
     user_service.user(register_params, { method: :post }).call
   end
 
   def login!
-    oauth_service.token(login_params, { method: :post }).call
+    params = login_params
+    params.merge!(otp: otp) if otp > 0
+    oauth_service.token(params, { method: :post }).call
   end
 
   def execute(method, *args, &block)
     block.call false, send(method, *args)
   rescue Services::Errors::HttpError => error
     block.call true, error
+  end
+
+  def votes(opts = {})
+    raise 'expected id not to be nil. error calling #votes' unless id
+    @votes ||= Votes.new(user: self, opts: opts)
+  end
+
+  def self.get(token)
+    response = Services::Users.user({}, { headers: token.to_header }).call.body.response
+    new(username: response.email, id: response.guid)
   end
 
   private
@@ -42,13 +51,12 @@ class User
   end
 
   def login_params
-    {
+    login = {
       grant_type: 'password',
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       username: username,
-      password: password,
-      otp: otp
+      password: password
     }
   end
 

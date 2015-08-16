@@ -2,15 +2,21 @@
   <div class="small-xs-horizontal-padding">
     <div class="row border-top-border micro-xs-vertical-padding border-bottom-border">
       <div class="col-md-4 text-left">
-        <h6 class="">
-          <%= @date.strftime("#{@date.day.ordinalize} %B %Y") %>
-        </h6>
+        <a class="text-royal" href="<%= url_for date: previous_day %>">
+          <h6 class="weak">&laquo; <%= day_display previous_day %></h6>
+        </a>
       </div>
       <div class="col-md-4 text-center">
-
+        <h6 class="">
+          <%= day_display @date %>
+        </h6>
       </div>
       <div class="col-md-4 text-right">
-        <h6 class="text-upcase weak">Share</h6>
+        <% unless is_tomorrow? %>
+        <a class="text-royal" href="<%= url_for date: next_day %>">
+          <h6 class="weak"><%= day_display next_day %> &raquo;</h6>
+        </a>
+        <% end %>
       </div>
     </div>
   </div>

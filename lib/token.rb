@@ -35,7 +35,7 @@ class Token
   end
 
   def to_cookie
-    Base64.encode64(to_h.to_json).strip
+    { value: Base64.encode64(to_h.to_json).strip, expires: expires }
   end
 
   def execute(method, *args, &block)

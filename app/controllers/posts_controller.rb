@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def popular
     @mode = 'popular'
-    populate_view_with recent_posts
+    populate_view_with popular_posts
     render :index
   end
 

@@ -1,0 +1,21 @@
+@import "variables";
+
+.voter {
+  border: solid 1px $border;
+
+  &.upvoted {
+    border-color: $positive;
+
+    .vote.up, p {
+      color: $positive;
+    }
+  }
+
+  &.downvoted {
+    border-color: $negative;
+
+    .vote.down, p {
+      color: $negative;
+    }
+  }
+}

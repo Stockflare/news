@@ -8,13 +8,15 @@ describe User do
 
   it { should respond_to(:otp) }
 
+  it { should respond_to(:id) }
+
   it { should respond_to(:register!) }
 
   it { should respond_to(:login!) }
 
-  it { should respond_to(:get) }
-
   specify { expect { subject.username = nil }.to raise_error(NoMethodError) }
+
+  specify { expect { subject.id = nil }.to raise_error(NoMethodError) }
 
   specify { expect { subject.password = nil }.to raise_error(NoMethodError) }
 
@@ -23,7 +25,9 @@ describe User do
   describe 'return value of #get' do
     before { user.register! }
 
-    specify { expect(subject.get.body.response.email).to eq user.username }
+    let(:token) { Token.new user.login!.body }
+
+    specify { expect(User.get(token).username).to eq user.username }
   end
 
   describe 'return value of #register!' do

@@ -1,13 +1,15 @@
-<div class="background-clear widget small-xs-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
-    <a href="#" class="upvote text-positive-hover">
+<div class="voter <%= vote_class_for post.id %> background-clear bordered small-xs-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+    <a href="#" class="vote up text-positive-hover" data-attitude="1" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
       <i class="fa fa-caret-up fa-lg"></i>
     </a>
     <% if !vote.empty? %>
-      <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount"><%= vote.votes %></p>
+      <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">
+        <%= vote.likes - vote.dislikes %>
+      </p>
     <% else %>
       <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">0</p>
     <% end %>
-    <a href="#" class="downvote text-negative-hover">
+    <a href="#" class="vote down text-negative-hover" data-attitude="0" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
       <i class="fa fa-caret-down fa-lg"></i>
     </a>
 </div>

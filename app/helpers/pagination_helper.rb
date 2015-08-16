@@ -17,6 +17,11 @@ module PaginationHelper
     Time.parse(next_day) > Time.now.beginning_of_day
   end
 
+  def day_display(time)
+    time = Time.parse(time) if time.is_a? String
+    time.strftime("#{time.day.ordinalize} %B %Y")
+  end
+
   private
 
   def date

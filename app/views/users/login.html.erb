@@ -2,6 +2,8 @@
   <h2 class="abs-line-height small-xs-bottom-margin">Welcome back to Stockflare</h2>
   <p class="small-xs-vertical-margin">If you have already registered for Stockflare, you can use your existing username and password below.</p>
   <form action="<%= login_path %>" method="POST" class="form small-xs-top-margin" enctype="multipart/form-data">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= render partial: 'shared/errors' if @errors %>
     <div class="form-group small-xs-vertical-margin" data-fields="email">
       <div class="sr-label">
         <label>Email Address</label>
