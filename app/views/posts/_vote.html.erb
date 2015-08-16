@@ -1,15 +1,31 @@
-<div class="voter <%= vote_class_for post.id %> background-clear bordered micro-xs-right-margin small-sm-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
-    <a href="#" class="vote up text-positive-hover" data-attitude="1" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
-      <i class="fa fa-caret-up fa-lg"></i>
-    </a>
-    <% if !vote.empty? %>
+<% if logged_in? %>
+  <div class="voter <%= vote_class_for post.id %> background-clear bordered micro-xs-right-margin small-sm-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+      <a href="#" class="vote up text-positive-hover" data-attitude="1" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
+        <i class="fa fa-caret-up fa-lg"></i>
+      </a>
       <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">
-        <%= vote.likes - vote.dislikes %>
+        <% if !vote.empty? %>
+          <%= vote.likes - vote.dislikes %>
+        <% else %>
+          0
+        <% end %>
       </p>
-    <% else %>
-      <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">0</p>
-    <% end %>
-    <a href="#" class="vote down text-negative-hover" data-attitude="0" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
-      <i class="fa fa-caret-down fa-lg"></i>
-    </a>
-</div>
+      <a href="#" class="vote down text-negative-hover" data-attitude="0" data-id="<%= post.id %>" data-created_at="<%= post.created_at %>">
+        <i class="fa fa-caret-down fa-lg"></i>
+      </a>
+  </div>
+<% else %>
+  <a href="<%= login_path %>">
+    <div class="voter <%= vote_class_for post.id %> background-clear bordered micro-xs-right-margin small-sm-right-margin" itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+        <i class="fa fa-caret-up fa-lg"></i>
+        <p class="micro-xs-margin abs-line-height" itemprop="userInteractionCount">
+          <% if !vote.empty? %>
+            <%= vote.likes - vote.dislikes %>
+          <% else %>
+            0
+          <% end %>
+        </p>
+        <i class="fa fa-caret-down fa-lg"></i>
+    </div>
+  </a>
+<% end %>

@@ -1,6 +1,18 @@
-<div class="small-xs-vertical-margin small-xs-horizontal-padding container">
-  <div class="small-xs-horizontal-padding">
-    <div class="jumbotron" style="background-image:url(<%= path_to_image("jumbotrons/grexit.png") %>)">
+<% unless logged_in? %>
+<div class="hidden-sm hidden-xs small-md-vertical-margin small-md-horizontal-padding container">
+  <div class="row small-md-padding background-normal">
+    <div class="col-md-10">
+      <h2 class="text-center">
+        Vote for and Discuss the <strong>Financial News</strong> that really matters.
+      </h2>
+    </div>
+    <div class="col-md-2">
+      <div class="small-md-left-padding text-right">
+        <a href="<%= register_path %>" class="micro-md-padding btn btn-positive" style="display:inline-block;">
+          Join Us
+        </a>
+      </div>
     </div>
   </div>
 </div>
+<% end %>
