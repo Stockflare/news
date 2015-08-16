@@ -1,8 +1,8 @@
-<article class="small-xs-padding" itemscope itemtype="http://schema.org/Article">
+<article class="micro-xs-padding small-sm-padding" itemscope itemtype="http://schema.org/Article">
   <meta itemprop="datePublished" content="<%= post.created_at %>">
   <meta itemprop="author" content="<%= post.source.title %>">
   <div class="row">
-    <div class="col-md-1 text-center">
+    <div class="col-md-1 col-xs-2 text-center">
       <%= render partial: 'vote', locals: { post: post, vote: post.votes } %>
     </div>
     <div class="col-md-9">
@@ -15,7 +15,7 @@
       <div class="tags clearfix">
         <% post.tags.each do |key, value| %>
           <a class="tag" href="#" itemprop="keywords" data-tag="<%= key %>" data-probability="<%= value %>">
-            <div class="micro-xs-bottom-margin micro-xs-left-margin pull-left">
+            <div class="micro-xs-bottom-margin micro-xs-right-margin pull-left">
               <span class="text-bright">#<%= key %></span>
             </div>
           </a>
