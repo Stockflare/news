@@ -1,10 +1,12 @@
 <div class="clearfix">
-  <a href="<%= register_path %>" class="pull-right btn btn-positive micro-xs-padding
-    <%= "active" if @mode == "register" %> hidden-md hidden-lg tiny-xs-left-margin">
+  <a href="<%= register_path %>" class="pull-right btn btn-positive
+    tiny-xs-horizontal-padding micro-xs-vertical-padding btn-bordered border-positive
+    <%= "active" if @mode == "register" %> tiny-xs-left-margin">
     Join for Free
   </a>
-  <a href="<%= login_path %>" class="pull-right btn text-dark btn-clear micro-xs-padding
-    text-dark-active <%= "active" if @mode == "login" %> no-md-right-padding">
+  <a href="<%= login_path %>" class="pull-right border-text text-text
+    btn-bordered btn btn-clear tiny-xs-horizontal-padding micro-xs-vertical-padding
+    text-dark-active  <%= "active" if @mode == "login" %>">
     Login
   </a>
 </div>

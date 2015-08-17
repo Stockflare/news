@@ -1,7 +1,7 @@
 <% title "Login - MFA Code Required" %>
 <%= render layout: "form" do %>
-  <h2 class="abs-line-height small-xs-bottom-margin">Secured Account</h2>
-  <p class="small-xs-vertical-margin">This account has been secured with an MFA device. Enter the code from the device to complete login.</p>
+  <h2 class="text-dark abs-line-height tiny-xs-bottom-margin">Secured Account</h2>
+  <p class="text-text tiny-xs-vertical-margin">This account has been secured with an MFA device. Enter the code from the device to complete login.</p>
   <form action="<%= login_path %>" method="POST" class="form small-xs-top-margin" enctype="multipart/form-data">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= render partial: 'shared/errors' if @errors %>
@@ -9,7 +9,6 @@
     <input value="<%= @password %>" name="password" type="hidden">
     <div class="form-group small-xs-vertical-margin" data-fields="email">
       <div class="sr-label">
-        <label>MFA Code</label>
         <div>
           <input name="otp" class="form-control" placeholder="MFA Code" type="text">
         </div>
@@ -19,7 +18,7 @@
       <input type="submit" class="login-submit btn btn-positive micro-xs-padding" value="Login">
     </div>
     <div class="form-group small-xs-vertical-margin">
-      <p><a href="https://stockflare.com/mfa/reset" target="_blank">I've lost my MFA Device</a></p>
+      <p class="text-text"><a class="text-brand text-brand-hover" href="https://stockflare.com/mfa/reset" target="_blank">I've lost my MFA Device</a></p>
     </div>
   </form>
 <% end %>

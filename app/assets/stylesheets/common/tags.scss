@@ -3,9 +3,12 @@
 .tags {
   .tag {
     & > div {
+      color: #000;
+      opacity: .3;
+      font-size: 12px;
       padding: 3px 4px;
       border-radius: 2px;
-      border: solid 1px $border;
+      border: solid 1px #979797;
     }
 
     &:first-child {
@@ -13,5 +16,11 @@
         margin-left: 0 !important;
       }
     }
+  }
+}
+
+article:hover {
+  .tag > div {
+    opacity: .6;
   }
 }

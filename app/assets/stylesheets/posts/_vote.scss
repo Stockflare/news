@@ -1,20 +1,35 @@
 @import "variables";
 
 .voter {
-  border: solid 1px $border;
+  border: solid 1px #ccd1d8;
+
+  & > a {
+    display: block;
+  }
+
+  i {
+    padding: 5px 10px;
+    font-size: 23px;
+    color: #ccd1d8;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 600;
+  }
 
   &.upvoted {
-    border-color: $positive;
+    border-color: $brand;
 
-    .vote.up, p {
-      color: $positive;
+    .vote.up, .vote.up i, p {
+      color: $brand;
     }
   }
 
   &.downvoted {
     border-color: $negative;
 
-    .vote.down, p {
+    .vote.down, .vote.down i, p {
       color: $negative;
     }
   }
