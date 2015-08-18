@@ -3,7 +3,7 @@
     <div class="row border-top-border micro-xs-vertical-padding border-bottom-border">
       <div class="col-md-4 col-sm-1 col-xs-1 text-left">
         <a class="text-royal" href="<%= url_for date: previous_day %>">
-          <h6 class="weak">&laquo; <span class="hidden-sm hidden-xs">Previous Day</span></h6>
+          <h6 class="weak">&larr; <span class="hidden-sm hidden-xs">Prev Day</span></h6>
         </a>
       </div>
       <div class="col-md-4 col-sm-10 col-xs-10 text-center">
@@ -14,7 +14,7 @@
       <div class="col-md-4 col-sm-1 col-xs-1 text-right">
         <% unless is_tomorrow? %>
         <a class="text-royal" href="<%= url_for date: next_day %>">
-          <h6 class="weak"><span class="hidden-sm hidden-xs">Next Day</span> &raquo;</h6>
+          <h6 class="weak"><span class="hidden-sm hidden-xs">Next Day</span> &rarr;</h6>
         </a>
         <% end %>
       </div>
