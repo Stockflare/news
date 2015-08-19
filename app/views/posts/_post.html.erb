@@ -15,8 +15,8 @@
         <p class="micro-xs-vertical-margin" itemprop="about"><%= post.excerpt.strip %></p>
         <div class="tags clearfix">
           <% post.tags.each do |key, value| %>
-            <a class="tag" href="#" itemprop="keywords" data-tag="<%= key %>" data-probability="<%= value %>">
-              <div class="micro-xs-bottom-margin micro-xs-right-margin pull-left">
+            <a class="tag" href="?tags=<%= (@tags + [key]).join(',') %>" itemprop="keywords" data-tag="<%= key %>" data-probability="<%= value %>">
+              <div class="micro-xs-bottom-margin micro-xs-right-margin pull-left <%= "active" if @tags.include? key %>">
                 <span>#<%= key %></span>
               </div>
             </a>

@@ -9,6 +9,13 @@
       padding: 3px 4px;
       border-radius: 2px;
       border: solid 1px #979797;
+
+      &.active {
+        background: $brand;
+        color: $normal;
+        border-color: $brand;
+        opacity: 1;
+      }
     }
 
     &:first-child {

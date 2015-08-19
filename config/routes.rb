@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'recent/(:date)', to: 'posts#recent', as: :recent
+  get 'recent(/:date)', to: 'posts#recent', as: :recent
 
-  get 'popular/(:date)', to: 'posts#popular', as: :popular
+  get 'popular(/:date)', to: 'posts#popular', as: :popular
 
   get :ping, to: 'ping#index'
 

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :parse_date
+  before_action :parse_date, :parse_tags
 
   def recent
     @mode = 'recent'
@@ -17,7 +17,11 @@ class PostsController < ApplicationController
 
   def parse_date
     date = post_params[:date]
-    @date = date ? Time.parse(date) : Time.now.utc
+    params[:date] = @date = date ? Time.parse(date) : Time.now.utc
+  end
+
+  def parse_tags
+    @tags = post_params[:tags] || []
   end
 
   def populate_view_with(data)
@@ -30,10 +34,14 @@ class PostsController < ApplicationController
   end
 
   def recent_posts(opts = post_params)
+    puts opts.inspect
     Services::News::Posts.new(:recent).get(opts).response
   end
 
   def post_params
-    params.permit(:cursor, :date)
+    parsed = params.permit(:cursor, :date)
+    parsed[:tags] = params[:tags].split(',') if params[:tags]
+    parsed[:source] = params[:source] if params[:source]
+    parsed
   end
 end
