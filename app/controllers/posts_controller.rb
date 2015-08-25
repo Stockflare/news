@@ -22,7 +22,6 @@ class PostsController < ApplicationController
 
   def popular_posts
     (0...3).to_a.collect do |i|
-      puts date(-(24 * i)).inspect
       News.new(:popular, date(-(24 * 60 * 60 * i)), post_params)
     end.reduce(&:merge)
   end
