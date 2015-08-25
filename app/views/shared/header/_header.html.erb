@@ -1,4 +1,37 @@
-<div class="hidden-md hidden-lg container">
+<div class="background-normal border-bottom-border">
+  <div class="container">
+    <div class="tiny-xs-vertical-padding small-xs-horizontal-padding clearfix">
+      <div class="pull-left">
+        <div class="logo clearfix">
+          <div class="pull-left s"></div>
+          <div class="pull-left tagline small-xs-right-padding border-right-border">
+            <h1>Stockflare News</h1>
+            <p>Financial News worth reading</p>
+          </div>
+        </div>
+      </div>
+      <div class="pull-left">
+        <div class="clearfix">
+          <a href="<%= popular_path %>" class="pull-left btn text-text text-brand-active
+            <%= "active" if @mode == "popular" %>
+            btn-clear micro-xs-vertical-padding tiny-xs-right-margin">
+            Top News
+          </a>
+          <a href="<%= recent_path %>" class="pull-left btn text-text text-brand-active
+            <%= "active" if @mode == "recent" %>
+            btn-clear micro-xs-vertical-padding">
+            Recent News
+          </a>
+        </div>
+      </div>
+      <div class="pull-right">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="hidden-md hidden-lg container">
   <div class="background-normal micro-xs-padding">
     <div class="row">
       <div class="col-xs-2">
@@ -55,4 +88,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

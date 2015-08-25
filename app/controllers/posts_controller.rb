@@ -1,47 +1,43 @@
 class PostsController < ApplicationController
-  before_action :parse_date, :parse_tags
+  before_action :parse_tags
 
   def recent
-    @mode = 'recent'
     populate_view_with recent_posts
-    render :index
   end
 
   def popular
-    @mode = 'popular'
     populate_view_with popular_posts
-    render :index
   end
 
   private
 
-  def parse_date
-    date = post_params[:date]
-    params[:date] = @date = date ? Time.parse(date) : Time.now.utc
+  def date(offset = 0)
+    date_param = post_params[:date]
+    @date = (date_param ? Time.parse(date_param) : Time.now.utc) + offset
+  end
+
+  def recent_posts
+    News.new(:recent, date, post_params)
+  end
+
+  def popular_posts
+    (0...3).to_a.collect do |i|
+      puts date(-(24 * i)).inspect
+      News.new(:popular, date(-(24 * 60 * 60 * i)), post_params)
+    end.reduce(&:merge)
   end
 
   def parse_tags
-    @tags = post_params[:tags] || []
+    tags = post_params[:tags]
+    @tags = tags ? tags.split(/, ?/) : []
   end
 
-  def populate_view_with(data)
-    @posts = data.body
-    @cursor = data.headers['X-Cursor']
-  end
-
-  def popular_posts(opts = post_params)
-    Services::News::Posts.new(:popular).get(opts).response
-  end
-
-  def recent_posts(opts = post_params)
-    puts opts.inspect
-    Services::News::Posts.new(:recent).get(opts).response
+  def populate_view_with(posts)
+    @cursor = posts[@date].cursor
+    @posts = posts
   end
 
   def post_params
     parsed = params.permit(:cursor, :date)
-    parsed[:tags] = params[:tags].split(',') if params[:tags]
-    parsed[:source] = params[:source] if params[:source]
-    parsed
   end
 end

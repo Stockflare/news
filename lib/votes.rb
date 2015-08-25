@@ -39,6 +39,10 @@ class Votes < Array
     self
   end
 
+  def score
+    @score ||= vote_service.karma(origin_id: user.id).response.body
+  end
+
   def next_page
     if cursor?
       self.class.new(user: user, opts: opts.merge(cursor: cursor)).fetch!

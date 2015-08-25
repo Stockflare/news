@@ -1,21 +1,24 @@
+<% with_date date %>
 <div class="micro-xs-top-margin small-sm-top-margin micro-xs-horizontal-padding small-sm-horizontal-padding container">
   <div class="no-xs-horizontal-padding small-sm-horizontal-padding">
     <div class="row border-top-border micro-xs-vertical-padding border-bottom-border">
       <div class="col-md-4 col-sm-1 col-xs-1 text-left">
-        <a class="text-royal" href="<%= url_for date: previous_day %>">
-          <h6 class="weak">&larr; <span class="hidden-sm hidden-xs">Prev Day</span></h6>
-        </a>
+        <% if paginate %>
+          <a class="text-royal" href="<%= url_for date: previous_day %>">
+            <h6 class="weak">&larr; <span class="hidden-sm hidden-xs">Prev Day</span></h6>
+          </a>
+        <% end %>
       </div>
       <div class="col-md-4 col-sm-10 col-xs-10 text-center">
         <h6 class="">
-          <%= day_display @date %>
+          <%= day_display %>
         </h6>
       </div>
       <div class="col-md-4 col-sm-1 col-xs-1 text-right">
-        <% unless is_tomorrow? %>
-        <a class="text-royal" href="<%= url_for date: next_day %>">
-          <h6 class="weak"><span class="hidden-sm hidden-xs">Next Day</span> &rarr;</h6>
-        </a>
+        <% if paginate && !is_tomorrow? %>
+          <a class="text-royal" href="<%= url_for date: next_day %>">
+            <h6 class="weak"><span class="hidden-sm hidden-xs">Next Day</span> &rarr;</h6>
+          </a>
         <% end %>
       </div>
     </div>

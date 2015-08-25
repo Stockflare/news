@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   before_action :fetch_votes, if: :logged_in?
 
+  before_action :fetch_score, if: :logged_in?
+
   def authenticate!
     @user ||= current_user if logged_in?
   end
@@ -35,6 +37,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def fetch_score
+    @score ||= current_user.votes.fetch!.score
+  end
 
   def fetch_votes
     @votes ||= current_user.votes.fetch!

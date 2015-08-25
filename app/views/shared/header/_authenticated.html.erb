@@ -1,5 +1,8 @@
 <div class="clearfix">
-  <a href="<%= logout_path %>" class="pull-right btn text-dark btn-clear micro-xs-vertical-padding">
+  <a href="<%= logout_path %>" class="pull-right btn text-text btn-clear micro-xs-vertical-padding">
     Logout
+  </a>
+  <a href="#" class="pull-right btn text-dark btn-clear micro-xs-vertical-padding tiny-xs-right-margin">
+    <%= truncate(@user.username, length: 20) %> <span class="text-brand">(<%= !@score.empty? ? @score.score.ceil : 0 %>)</span>
   </a>
 </div>
