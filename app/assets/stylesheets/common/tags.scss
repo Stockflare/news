@@ -1,21 +1,85 @@
 @import "variables";
 
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+.tagger-background {
+  background-size: cover;
+  background-repeat: norepeat;
+  background-position: center center;
+  background-image: url(/assets/common/tag-background.png);
+}
+
+.popular.tags {
+  .tag {
+    padding: 8px 10px;
+    border-radius: 3px;
+    color: $normal;
+    background: rgba($royal, .3);
+    float: none;
+    display: inline-block;
+    font-weight: 600;
+  }
+}
+
 .tags {
   .tag {
-    & > div {
-      color: #000;
-      opacity: .3;
-      font-size: 12px;
-      padding: 3px 4px;
-      border-radius: 2px;
-      border: solid 1px #979797;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    text-transform: lowercase;
+    margin-left: $micro_spacing;
+    @include vendor-prefix(user-select, none);
 
-      &.active {
-        background: $brand;
-        color: $normal;
-        border-color: $brand;
-        opacity: 1;
-      }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.tagger.editor {
+  input {
+    padding: 1px 0px;
+    font-size: 21px;
+    color: #bebebe;
+  }
+
+  .tag {
+    margin-left: $micro_spacing;
+    border-radius: 3px;
+    background: $brand;
+    color: $normal;
+    font-weight: 600;
+    padding: 8px 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: $micro_spacing;
+    }
+  }
+}
+
+article {
+  .tag {
+    color: #000;
+    opacity: .3;
+    padding: 3px 4px;
+    border-radius: 2px;
+    border: solid 1px #979797;
+
+    &.active {
+      background: $brand;
+      color: $normal;
+      border-color: $brand;
+      opacity: 1;
     }
 
     &:first-child {
@@ -27,7 +91,5 @@
 }
 
 article:hover {
-  .tag > div {
-    opacity: .6;
-  }
+  .tag { opacity: .6; }
 }

@@ -2,7 +2,7 @@
 
 <% title "#{@mode.titleize} News" %>
 
-<%= render partial: 'banner' %>
+<%= render partial: 'tagger' %>
 
 <% @posts.each do |date, collection| %>
   <% if collection.posts.any? %>
