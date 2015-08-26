@@ -17,12 +17,12 @@ class PostsController < ApplicationController
   end
 
   def recent_posts
-    News.new(:recent, date, post_params)
+    Feed.new(:recent, date, post_params)
   end
 
   def popular_posts
     (0...3).to_a.collect do |i|
-      News.new(:popular, date(-(24 * 60 * 60 * i)), post_params)
+      Feed.new(:popular, date(-(24 * 60 * 60 * i)), post_params)
     end.reduce(&:merge)
   end
 

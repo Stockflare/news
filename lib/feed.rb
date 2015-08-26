@@ -1,5 +1,4 @@
-class News < Hash
-
+class Feed < Hash
   class Collection
     include Virtus.value_object(coerce: true)
 
@@ -21,6 +20,6 @@ class News < Hash
   private
 
   def response(mode, date, opts = {})
-    Services::News::Posts.send(mode, opts.merge(date: date)).response
+    Services::News::Posts.new(mode).get(opts.merge(date: date)).response
   end
 end
