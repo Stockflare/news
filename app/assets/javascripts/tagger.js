@@ -54,12 +54,23 @@ $(document).ready(function() {
 
     $('[name=tagger]').on('keyup', function(e) {
       var code = e.keyCode || e.which;
-      var triggers = [32, 13, 188];
+      var triggers = [32, 13, 188, 8];
       if(triggers.indexOf(code) > -1) {
         var val = $(this).val().replace(/[^\d\w]/gi,'');
-        if( ! tagExists(val)) {
-          setTag(val);
-          appendTag(val);
+        if(code != 8) {
+          if( ! tagExists(val)) {
+            setTag(val);
+            appendTag(val);
+          }
+        } else {
+          if(val.length == 0) {
+            var tags = getTags();
+            if(tags.length > 0) {
+              var last = tags[tags.length - 1];
+              unsetTag(last);
+              removeTag(last);
+            }
+          }
         }
         $(this).val('');
       }

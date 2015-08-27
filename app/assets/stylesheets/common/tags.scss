@@ -8,6 +8,14 @@
   #{$name}: #{$argument};
 }
 
+.tagger-container {
+  padding: $large_spacing $small_spacing;
+
+  @media screen and ( max-height: 750px ) {
+    padding: 10px $small_spacing;
+  }
+}
+
 .tagger-background {
   background-size: cover;
   background-repeat: norepeat;
@@ -17,7 +25,7 @@
 
 .popular.tags {
   .tag {
-    padding: 8px 10px;
+    padding: 4px 10px;
     border-radius: 3px;
     color: $normal;
     background: rgba($royal, .3);
@@ -47,6 +55,10 @@
     padding: 1px 0px;
     font-size: 21px;
     color: #bebebe;
+  }
+
+  .tags:empty + input:empty:before {
+    content: 'Type...';
   }
 
   .tag {
