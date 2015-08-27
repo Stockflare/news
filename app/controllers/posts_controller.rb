@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_action :parse_tags
-
   def recent
     populate_view_with recent_posts
   end
@@ -26,9 +24,10 @@ class PostsController < ApplicationController
     end.reduce(&:merge)
   end
 
-  def parse_tags
-    tags = post_params[:tags]
-    @tags = tags ? tags.split(/, ?/) : []
+  def tags
+    @tags ||= JSON.parse(cookies['tags'])
+  rescue
+    []
   end
 
   def populate_view_with(posts)
@@ -38,5 +37,7 @@ class PostsController < ApplicationController
 
   def post_params
     parsed = params.permit(:cursor, :date)
+    parsed[:tags] = tags if tags.any?
+    parsed
   end
 end

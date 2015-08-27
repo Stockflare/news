@@ -52,14 +52,19 @@
 
 .tagger.editor {
   input {
-    padding: 1px 0px;
+    padding: 2px 0px;
     font-size: 21px;
     color: #bebebe;
+    background: $normal;
   }
 
-  .tags:empty + input:empty:before {
-    content: 'Type...';
+  .apply {
+    float: right;
+    padding: 8px 10px;
+    display: none;
   }
+
+  .tags.modified + input + .apply { display: block; }
 
   .tag {
     margin-left: $micro_spacing;

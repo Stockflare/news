@@ -11,7 +11,7 @@ $(document).ready(function() {
     var setTag = function(tag) {
       var tags = getTags();
       tags.push(tag);
-      return Cookies.set(COOKIE_NAME, tags);
+      return Cookies.set(COOKIE_NAME, tags, { expires: 7 });
     };
 
     var unsetTag = function(tag) {
@@ -38,11 +38,14 @@ $(document).ready(function() {
 
     getTags().forEach(appendTag);
 
+    $('.apply').on('click', function() { location.reload() });
+
     $('.tag').on('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
       var tag = $(this).text();
-      $(this).toggleClass('active', !tagExists(tag))
+      $(this).toggleClass('active', !tagExists(tag));
+      $tags.addClass('modified');
       if(tagExists(tag)) {
         unsetTag(tag);
         removeTag(tag);
@@ -58,7 +61,7 @@ $(document).ready(function() {
       if(triggers.indexOf(code) > -1) {
         var val = $(this).val().replace(/[^\d\w]/gi,'');
         if(code != 8) {
-          if( ! tagExists(val)) {
+          if( ! tagExists(val) && val.length > 0) {
             setTag(val);
             appendTag(val);
           }
@@ -72,6 +75,7 @@ $(document).ready(function() {
             }
           }
         }
+        $tags.addClass('modified');
         $(this).val('');
       }
     });
