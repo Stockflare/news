@@ -2,8 +2,6 @@
 
 <% title "#{@mode.titleize} News" %>
 
-<%= render partial: 'tagger' %>
-
 <% @posts.each do |date, collection| %>
   <% if collection.posts.any? %>
     <%= render partial: 'header', locals: { date: date, paginate: true } %>
